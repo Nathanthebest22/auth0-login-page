@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth0 Login</title>
+    <script src="https://cdn.auth0.com/js/auth0/9.13/auth0.min.js"></script>
+</head>
+<body>
+    <h1>Connexion</h1>
+    <button id="login">Se connecter</button>
+
+    <script>
+        // Initialisation d'Auth0
+        var webAuth = new auth0.WebAuth({
+            domain: dev-pzbmsih3lhxbifvu.eu.auth0.com,
+            clientID: wsQ54luDaB29FubghX4BkEN7WsXuROzH,
+            redirectUri: https://sites.google.com/d/1qJhyKs35720R3gEGdkB36fIyNYR_-VaS/p/1oUePm__xl_BrdaFC2NVGhf5la6ChlP0F/edit, // URL de redirection après connexion
+            responseType: 'token id_token',
+            scope: 'openid profile email'
+        });
+
+        // Fonction de connexion
+        document.getElementById('login').addEventListener('click', function() {
+            webAuth.authorize();
+        });
+    </script>
+</body>
+</html>
